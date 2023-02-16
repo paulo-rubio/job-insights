@@ -6,10 +6,10 @@ def get_unique_industries(path: str) -> List[str]:
     data = read(path)
     industries = list()
 
-    for dict in data:
-        if dict["industry"] not in industries:
-            if len(dict["industry"]) > 0:
-                industries.append(dict["industry"])
+    for dicionario in data:
+        if dicionario["industry"] not in industries:
+            if len(dicionario["industry"]) > 0:
+                industries.append(dicionario["industry"])
     return industries
     """Checks all different industries and returns a list of them
 

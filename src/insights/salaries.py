@@ -1,7 +1,14 @@
 from typing import Union, List, Dict
+from src.insights.jobs import read
 
 
 def get_max_salary(path: str) -> int:
+    data = read(path)
+    list_salary = []
+    for dicionario in data:
+        if dicionario["max_salary"] and dicionario["max_salary"].isnumeric():
+            list_salary.append(int(dicionario["max_salary"]))
+    return max(list_salary)
     """Get the maximum salary of all jobs
 
     Must call `read`
@@ -20,6 +27,12 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
+    data = read(path)
+    list_salary = []
+    for dicionario in data:
+        if dicionario["min_salary"] and dicionario["min_salary"].isnumeric():
+            list_salary.append(int(dicionario["min_salary"]))
+    return min(list_salary)
     """Get the minimum salary of all jobs
 
     Must call `read`
