@@ -10,16 +10,15 @@ def read(path: str) -> List[Dict]:
         jobs = list()
         for job in result:
             jobs.append(job)
-        print(jobs[:2])
 
     return jobs
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    leitura = read(path)
+    data = read(path)
     jobsTypes = list()
 
-    for dict in leitura:
+    for dict in data:
         if dict["job_type"] not in jobsTypes:
             jobsTypes.append(dict["job_type"])
     return jobsTypes
