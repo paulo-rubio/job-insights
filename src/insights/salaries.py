@@ -51,7 +51,15 @@ def get_min_salary(path: str) -> int:
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
-    """Checks if a given salary is in the salary range of a given job
+    if "min_salary" not in job or "max_salary" not in job:
+        raise ValueError("precisa ter max e min")
+    if job["min_salary"] > job["max_salary"]:
+        raise ValueError("max salary precisa ser menor q minsalary")
+    if not isinstance(salary, int):
+        raise ValueError("O valor de 'salary' precisa ser um número inteiro")
+    return job["min_salary"] < salary < job["max_salary"]
+
+    """Checks i"f a given salary is in the salary range of a given job
 
     Parameters
     ----------
@@ -80,6 +88,10 @@ def filter_by_salary_range(
     jobs: List[dict],
     salary: Union[str, int]
 ) -> List[Dict]:
+    # salary_list = []
+    # for job in jobs:
+    #     try:
+    #       if 
     """Filters a list of jobs by salary range
 
     Parameters
